@@ -18,7 +18,8 @@ public class Atleta {
         this.edad = edad;
         this.pais = pais;
     }
-
+    
+    //getters
     public String getNombre() {
         return nombre;
     }
@@ -31,7 +32,7 @@ public class Atleta {
         return pais;
     }
 
-
+    
     @Override
     public String toString(){
         return "Nombre: "+nombre+", Edad: "+edad+", Pais: "+pais;
