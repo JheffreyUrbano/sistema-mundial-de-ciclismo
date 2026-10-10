@@ -1,0 +1,17 @@
+# NetBeans específico
+**/nbproject/private/
+**/nbproject/Makefile-*.mk
+**/nbproject/Package-*.bash
+build/
+nbdist/
++dist/
+
+# Maven específico
+target/
+*.jar
+*.war
+*.ear
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
