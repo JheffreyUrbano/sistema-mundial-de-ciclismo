@@ -34,6 +34,25 @@ public class Competidor extends Atleta {
         return peso;
     }
     
+    // Overload para puntos sin medalla
+    public void actualizarRanking(int puntosObtenidos){
+        ranking += puntosObtenidos;
+    }
+    
+    // Overload para puntos CON bonificación (medalla)
+    public void actualizarRanking(int puntosObtenidos, boolean ganoMedalla){
+        int bonus;
+        
+        if (ganoMedalla){
+            if(puntosObtenidos >= 100){
+                bonus = 50;
+            }else { bonus = 20; }
+        }else { bonus = 0; }
+        
+        ranking += puntosObtenidos + bonus;
+    }
+    
+    
     @Override
     public String toString(){
         return super.toString()+", Ranking: "+ranking+", Estatura: "+estatura+", Peso: "+peso+"kg";
