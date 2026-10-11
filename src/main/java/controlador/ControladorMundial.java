@@ -4,27 +4,14 @@
  */
 package controlador;
 
-<<<<<<< HEAD
-=======
 import modelo.Competidor;
->>>>>>> 1a91148ff9867f70e22c95f2c93976a3e7827406
-/**
- *
- * @author Jurbano
- */
-<<<<<<< HEAD
-
 import vista.VistaMundial;
-import modelo.Competidor;
 
-=======
->>>>>>> 1a91148ff9867f70e22c95f2c93976a3e7827406
 public class ControladorMundial {
     private static final int MAX = 50;
     private Competidor[] competidores = new Competidor[MAX];
     private int cantidad = 0;
     private VistaMundial vista;
-<<<<<<< HEAD
 
     public ControladorMundial(VistaMundial vista) {
         this.vista = vista;
@@ -104,6 +91,3 @@ public class ControladorMundial {
         vista.cargarTabla(competidores, cantidad);
     }
 }
-=======
-}
->>>>>>> 1a91148ff9867f70e22c95f2c93976a3e7827406
