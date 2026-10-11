@@ -19,7 +19,8 @@ src/main/java/
 │   └── VistaMundial.java         (JFrame)
 ├── controlador/
 │   └── ControladorMundial.java
-└── Main.java                     (clase principal)
+└── principal/
+    └── Main.java                     (clase principal)
 ```
 
 ## Patrón MVC
@@ -63,68 +64,7 @@ La vista no conoce al controlador: el controlador se registra como oyente de los
 
 ## Diagrama de clases (UML)
 
-```mermaid
-classDiagram
-    direction LR
-
-    class Atleta {
-        -String nombre
-        -int edad
-        -String pais
-        +Atleta(String nombre, int edad, String pais)
-        +getNombre() String
-        +getEdad() int
-        +getPais() String
-        +toString() String
-    }
-
-    class Competidor {
-        -int ranking
-        -double estatura
-        -double peso
-        +Competidor(String, int, String, int, double, double)
-        +getRanking() int
-        +getEstatura() double
-        +getPeso() double
-        +actualizarRanking(int puntosObtenidos) void
-        +actualizarRanking(int puntosObtenidos, boolean ganoMedalla) void
-        +toString() String
-    }
-
-    class ControladorMundial {
-        -int MAX
-        -Competidor[] competidores
-        -int cantidad
-        -VistaMundial vista
-        +ControladorMundial(VistaMundial vista)
-        -agregar() void
-        -actualizarRanking() void
-        -ordenar() void
-        -refrescar() void
-    }
-
-    class VistaMundial {
-        -JTextField txtNombre
-        -JTable tabla
-        -DefaultTableModel modelo
-        +cargarTabla(Competidor[] lista, int cantidad) void
-        +limpiarFormulario() void
-        +mostrarMensaje(String mensaje) void
-        +getFilaSeleccionada() int
-    }
-
-    class Main {
-        +main(String[] args)$ void
-    }
-
-    Atleta "1" <|-- "1" Competidor : hereda
-    ControladorMundial "1" o-- "1..N" Competidor : gestiona
-    ControladorMundial "1" --> "1" VistaMundial : actualiza
-    Competidor "N" --o "1" ControladorMundial : pertenece a
-    VistaMundial ..> Competidor : muestra
-    Main ..> ControladorMundial : crea
-    Main ..> VistaMundial : crea
-```
+![proyecto1_UML.png](assets/proyecto1_UML.png)
 
 **Relaciones y cardinalidades**
 
@@ -135,21 +75,7 @@ classDiagram
 
 ## Diagrama de flujo: `actualizarRanking(puntosObtenidos, ganoMedalla)`
 
-```mermaid
-flowchart TD
-    A([Inicio]) --> B[/Recibir puntosObtenidos y ganoMedalla/]
-    B --> C{¿ganoMedalla?}
-    C -- Sí --> D{¿puntosObtenidos >= 100?}
-    C -- No --> G[bonus = 0]
-    D -- Sí --> E[bonus = 50]
-    D -- No --> F[bonus = 20]
-    E --> H[ranking = ranking + puntosObtenidos + bonus]
-    F --> H
-    G --> H
-    H --> I[Reordenar lista de mayor a menor ranking]
-    I --> J[/Mostrar tabla actualizada/]
-    J --> K([Fin])
-```
+![proyecto1_flowchart.png](assets/proyecto1_flowchart.png)
 
 Los dos últimos pasos antes del fin (reordenar y mostrar) los ejecuta el controlador; el cálculo del bonus y del ranking está en `Competidor`.
 
