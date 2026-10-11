@@ -9,11 +9,11 @@ package modelo;
  * @author Jurbano
  */
 public class Competidor extends Atleta {
-    private String ranking;
+    private int ranking;
     private double estatura;
     private double peso;
 
-    public Competidor(String ranking, double estatura, double peso, String nombre, int edad, String pais) {
+    public Competidor(String nombre, int ranking, String pais, int edad, double estatura, double peso) {
         super(nombre, edad, pais);
         this.ranking = ranking;
         this.estatura = estatura;
@@ -22,7 +22,7 @@ public class Competidor extends Atleta {
     
     //getters
 
-    public String getRanking() {
+    public int getRanking() {
         return ranking;
     }
 
