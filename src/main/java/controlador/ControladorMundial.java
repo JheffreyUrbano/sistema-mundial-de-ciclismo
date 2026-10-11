@@ -73,7 +73,7 @@ public class ControladorMundial {
         }
     }
 
-    // Ordenamiento burbuja: mayor ranking primero
+    // mayor ranking primero por bubble sort
     private void ordenar() {
         for (int i = 0; i < cantidad - 1; i++) {
             for (int j = 0; j < cantidad - 1 - i; j++) {
