@@ -40,7 +40,7 @@ public class ControladorMundial {
                 vista.mostrarMensaje("Los valores numéricos deben ser positivos.");
                 return;
             }
-            competidores[cantidad] = new Competidor(nombre, edad, pais, ranking, estatura, peso);
+            competidores[cantidad] = new Competidor(nombre, ranking, pais, edad, estatura, peso);
             cantidad++;
             refrescar();
             vista.limpiarFormulario();
