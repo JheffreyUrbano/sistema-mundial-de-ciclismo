@@ -8,9 +8,16 @@ package principal;
  *
  * @author Jurbano
  */
-public class Main {
+import javax.swing.SwingUtilities;
+import controlador.ControladorMundial;
+import vista.VistaMundial;
 
+public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        SwingUtilities.invokeLater(() -> {
+            VistaMundial vista = new VistaMundial();
+            new ControladorMundial(vista);
+            vista.setVisible(true);
+        });
     }
 }
